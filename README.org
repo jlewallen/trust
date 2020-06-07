@@ -1,0 +1,33 @@
+#+TITLE: faces
+#+SETUPFILE: theme-readtheorg.setup
+
+* Introduction
+
+  This is a sandbox for me to play with some ideas that have been swirling around.
+
+* Debugging
+
+  1) watch nvidia-smi
+
+* Developer Notes
+
+** Issues with numpy and tensorflow versions. Usually visible because of
+   a ton of warnings when importing the python module.
+
+   https://github.com/tensorflow/tensorflow/issues/31249
+
+** CUDA
+
+   https://developer.nvidia.com/cudnn
+
+   Version 7 only, the 8 RC was broken for me. Errors when compiling test program during cmake of dlib.
+
+   https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal
+
+   I had to kill X11 and run the installer.
+
+   1) Ctrl-Alt-F1
+   2) sudo service lightdm stop
+   3) sudo init 3
+   5) sudo ./cuda-???
+   6) sudo reboot
