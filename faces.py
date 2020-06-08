@@ -158,7 +158,7 @@ class Classifier:
 
         original = face_recognition.load_image_file(path)
 
-        cvlib = self.analyse_cvlib(path, original, None)
+        cvlib = None  # self.analyse_cvlib(path, original, None)
         haar = self.analyse_haar(path, original, None)
         cnn = self.analyse_cnn(path, original, None)
 
