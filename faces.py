@@ -74,8 +74,6 @@ class Classifier:
         self.nthreads = nthreads
         self.log = logging.getLogger("faces")
         self.storage_path = "./processed"
-        self.hearCascadePath = "haarcascade_frontalface_default.xml"
-        self.faceCascade = cv2.CascadeClassifier(self.hearCascadePath)
 
     def get_candidate_files(self, paths):
         matches = []
@@ -102,8 +100,11 @@ class Classifier:
     def analyse_haar(self, path, original, annotated):
         self.log.info("%s haar:begin" % (path,))
 
+        hearCascadePath = "haarcascade_frontalface_default.xml"
+        faceCascade = cv2.CascadeClassifier(hearCascadePath)
+
         gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
-        faces = self.faceCascade.detectMultiScale(
+        faces = faceCascade.detectMultiScale(
             gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30)
         )
 
