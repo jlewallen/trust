@@ -181,8 +181,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.check:
-        print(dlib.DLIB_USE_CUDA)
-        print(dlib.cuda.get_num_devices())
+        log.info("%s %d" % (dlib.DLIB_USE_CUDA, dlib.cuda.get_num_devices()))
 
     if args.paths:
         log.info("starting (threads=%d)" % (args.threads,))
